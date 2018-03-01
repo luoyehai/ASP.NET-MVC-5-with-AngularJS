@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CRUD_SampleModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CustName" Type="varchar" MaxLength="100" />
+          <Property Name="CustEmail" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="EMPLOYEE_RATING">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SAP_Module" Type="nvarchar" MaxLength="10" />
+          <Property Name="Basic_Operation" Type="int" />
+          <Property Name="Priority_Daily_Work" Type="int" />
+          <Property Name="Document_Resource" Type="int" />
+          <Property Name="SAP_Environment" Type="int" />
+          <Property Name="Dept_Colleagues_SAP_ERP" Type="int" />
+          <Property Name="Line_Manager_SAP_ERP" Type="int" />
+          <Property Name="Overall_Rating" Type="float" />
+          <Property Name="CreateOn" Type="datetime" />
+          <Property Name="SAP_Question1" Type="nvarchar(max)" />
+          <Property Name="SAP_Question2" Type="nvarchar(max)" />
+          <Property Name="SAP_Question3" Type="nvarchar(max)" />
+          <Property Name="SAP_Question4" Type="nvarchar(max)" />
+          <Property Name="SAP_Question5" Type="nvarchar(max)" />
+          <Property Name="SAP_Idea1" Type="nvarchar(max)" />
+          <Property Name="SAP_Idea2" Type="nvarchar(max)" />
+          <Property Name="SAP_Idea3" Type="nvarchar(max)" />
+          <Property Name="SAP_Idea4" Type="nvarchar(max)" />
+          <Property Name="SAP_Idea5" Type="nvarchar(max)" />
+          <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="CRUD_SampleModelStoreContainer">
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EMPLOYEE_RATING" EntityType="Self.EMPLOYEE_RATING" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CRUD_SampleModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CustEmail" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="CRUD_SampleEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="EMPLOYEE_RATING" EntityType="CRUD_SampleModel.EMPLOYEE_RATING" />
+        </EntityContainer>
+        <EntityType Name="EMPLOYEE_RATING">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SAP_Module" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Basic_Operation" Type="Int32" />
+          <Property Name="Priority_Daily_Work" Type="Int32" />
+          <Property Name="Document_Resource" Type="Int32" />
+          <Property Name="SAP_Environment" Type="Int32" />
+          <Property Name="Dept_Colleagues_SAP_ERP" Type="Int32" />
+          <Property Name="Line_Manager_SAP_ERP" Type="Int32" />
+          <Property Name="Overall_Rating" Type="Double" />
+          <Property Name="CreateOn" Type="DateTime" Precision="3" />
+          <Property Name="SAP_Question1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SAP_Question2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SAP_Question3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SAP_Question4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SAP_Question5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SAP_Idea1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SAP_Idea2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SAP_Idea3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SAP_Idea4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SAP_Idea5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CRUD_SampleModelStoreContainer" CdmEntityContainer="CRUD_SampleEntities">
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="CRUD_SampleModel.Customer">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CustName" ColumnName="CustName" />
+                <ScalarProperty Name="CustEmail" ColumnName="CustEmail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMPLOYEE_RATING">
+            <EntityTypeMapping TypeName="CRUD_SampleModel.EMPLOYEE_RATING">
+              <MappingFragment StoreEntitySet="EMPLOYEE_RATING">
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="SAP_Idea5" ColumnName="SAP_Idea5" />
+                <ScalarProperty Name="SAP_Idea4" ColumnName="SAP_Idea4" />
+                <ScalarProperty Name="SAP_Idea3" ColumnName="SAP_Idea3" />
+                <ScalarProperty Name="SAP_Idea2" ColumnName="SAP_Idea2" />
+                <ScalarProperty Name="SAP_Idea1" ColumnName="SAP_Idea1" />
+                <ScalarProperty Name="SAP_Question5" ColumnName="SAP_Question5" />
+                <ScalarProperty Name="SAP_Question4" ColumnName="SAP_Question4" />
+                <ScalarProperty Name="SAP_Question3" ColumnName="SAP_Question3" />
+                <ScalarProperty Name="SAP_Question2" ColumnName="SAP_Question2" />
+                <ScalarProperty Name="SAP_Question1" ColumnName="SAP_Question1" />
+                <ScalarProperty Name="CreateOn" ColumnName="CreateOn" />
+                <ScalarProperty Name="Overall_Rating" ColumnName="Overall_Rating" />
+                <ScalarProperty Name="Line_Manager_SAP_ERP" ColumnName="Line_Manager_SAP_ERP" />
+                <ScalarProperty Name="Dept_Colleagues_SAP_ERP" ColumnName="Dept_Colleagues_SAP_ERP" />
+                <ScalarProperty Name="SAP_Environment" ColumnName="SAP_Environment" />
+                <ScalarProperty Name="Document_Resource" ColumnName="Document_Resource" />
+                <ScalarProperty Name="Priority_Daily_Work" ColumnName="Priority_Daily_Work" />
+                <ScalarProperty Name="Basic_Operation" ColumnName="Basic_Operation" />
+                <ScalarProperty Name="SAP_Module" ColumnName="SAP_Module" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

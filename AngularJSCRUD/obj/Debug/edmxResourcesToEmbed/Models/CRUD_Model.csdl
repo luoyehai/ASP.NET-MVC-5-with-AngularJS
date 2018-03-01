@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CRUD_SampleModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CustEmail" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="CRUD_SampleEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="EMPLOYEE_RATING" EntityType="CRUD_SampleModel.EMPLOYEE_RATING" />
+  </EntityContainer>
+  <EntityType Name="EMPLOYEE_RATING">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SAP_Module" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Basic_Operation" Type="Int32" />
+    <Property Name="Priority_Daily_Work" Type="Int32" />
+    <Property Name="Document_Resource" Type="Int32" />
+    <Property Name="SAP_Environment" Type="Int32" />
+    <Property Name="Dept_Colleagues_SAP_ERP" Type="Int32" />
+    <Property Name="Line_Manager_SAP_ERP" Type="Int32" />
+    <Property Name="Overall_Rating" Type="Double" />
+    <Property Name="CreateOn" Type="DateTime" Precision="3" />
+    <Property Name="SAP_Question1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SAP_Question2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SAP_Question3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SAP_Question4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SAP_Question5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SAP_Idea1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SAP_Idea2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SAP_Idea3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SAP_Idea4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SAP_Idea5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,188 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<div class="logo">
+    <img src="~/Content/images/logo.png" />
+</div>
+<h2 style="padding-top:55px">SAP Knowledge Base Review</h2>
+
+<div id="content" ng-controller="CustomerController" class="ng-cloak">
+    <div id="employeeBox">
+        <div style="height:40px">
+            <h1 class="Informationbar">Employee Information</h1>
+        </div>
+        <div id="employeeTable">
+            <table>
+                <tr>
+                    <td width="20%" colspan="2" style="font-weight:bolder;">Name</td>
+                    @*<td width="30%" colspan="3">{{Rating.EmployeeName}}</td>*@
+                    <td width="30%" colspan="3">@ViewBag.CurrentUserName</td>
+                    <td width="20%" colspan="2" style="font-weight:bold">Date</td>
+                    <td width="30%" colspan="3">{{Rating.CreateOn | date:'yyyy-MM-dd'}}</td>
+                </tr>
+                <tr>
+                    <td width="20%" colspan="2" style="font-weight:bolder">In Use SAP Module</td>
+                    <td width="80%" colspan="10">
+                        <label ng-repeat="SAPModule in SAPModuleS">
+                            <input type="checkbox"
+                                   ng-model="SAPModule.checked"
+                                   ng-click="updateSAPModuleSelection($index, SAPModuleS, SAPModule.title)">
+                            {{SAPModule.title}}
+                        </label>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="selfRatingBox">
+        <div style="height:40px">
+            <h1 class="Informationbar">Self-Ratings</h1>
+        </div>
+        <div id="ratingTable">
+            <table>
+                <tr>
+                    <td width="40%" colspan="5" style="font-weight:bolder;"></td>
+                    <td width="12%" colspan="1" style="font-weight:bolder; text-align:center">1 = poor</td>
+                    <td width="12%" colspan="1" style="font-weight:bolder; text-align:center">2 = Fair</td>
+                    <td width="12%" colspan="1" style="font-weight:bolder; text-align:center">3 = Satisfatory</td>
+                    <td width="12%" colspan="1" style="font-weight:bolder; text-align:center">4 = Good</td>
+                    <td width="12%" colspan="1" style="font-weight:bolder; text-align:center">5 = Excellent</td>
+                </tr>
+                <!--Basic Operation-->
+                <tr>
+                    <td class="tdtitle" colspan="5">Basic operation</td>
+                    <td class="tdrating" colspan="1" ng-repeat="RatingBasic in RatingsBasic">
+                        <label>
+                            <input type="checkbox"
+                                   ng-model="RatingBasic.checked"
+                                   ng-click="updateBasicOperSelection($index,RatingBasic,RatingsBasic, RatingBasic.value)">
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="20%" colspan="1" style="font-style:italic">Comments</td>
+                    <td width="80%" colspan="7" style="font-style:italic">Q:\READ\IT Resource\SAP\SAP Navigation.ppt</td>
+                </tr>
+                <!--Priority in your daily work-->
+                <tr>
+                    <td class="tdtitle" colspan="5">Priority in your daily work</td>
+                    <td class="tdrating" colspan="1" ng-repeat="RatingPriority in RatingsPriority">
+                        <label>
+                            <input type="checkbox"
+                                   ng-model="RatingPriority.checked"
+                                   ng-click="updatePrioritySelection($index, RatingPriority, RatingsPriority, RatingPriority.value)">
+
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="20%" colspan="1" style="font-style:italic">Comments</td>
+                    <td width="80%" colspan="7" style="font-style:italic">Can you work without SAP?</td>
+                </tr>
+                <!--Document Resource-->
+                <tr>
+                    <td class="tdtitle" colspan="5">Document resource</td>
+                    <td class="tdrating" colspan="1" ng-repeat="RatingDocument in RatingsDocument">
+                        <label>
+                            <input type="checkbox"
+                                   ng-model="RatingDocument.checked"
+                                   ng-click="updateDocumentSelection($index,RatingDocument ,RatingsDocument, RatingDocument.value)">
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="20%" colspan="1" style="font-style:italic">Comments</td>
+                    <td width="80%" colspan="7" style="font-style:italic">Does any CUI/Training document support your daily work?</td>
+                </tr>
+                <!--Company SAP Learning Environment-->
+                <tr>
+                    <td class="tdtitle" colspan="5">Company SAP learning environment</td>
+                    <td class="tdrating" colspan="1" ng-repeat="RatingCompany in RatingsCompany">
+                        <label>
+                            <input type="checkbox"
+                                   ng-model="RatingCompany.checked"
+                                   ng-click="updateCompanySAPSelection($index,RatingCompany, RatingsCompany, RatingCompany.value)">
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="20%" colspan="1" style="font-style:italic">Comments</td>
+                    <td width="80%" colspan="7" style="font-style:italic">Does your colleagues will to talk and share about SAP topic?</td>
+                </tr>
+                <!--Same Dept Colleagues SAP ERP skill-->
+                <tr>
+                    <td class="tdtitle" colspan="5">Same department colleagues SAP ERP skill</td>
+                    <td class="tdrating" colspan="1" ng-repeat="RatingDept in RatingsDept">
+                        <label>
+                            <input type="checkbox"
+                                   ng-model="RatingDept.checked"
+                                   ng-click="updateDeptColleaguesSelection($index, RatingDept, RatingsDept, RatingDept.value)">
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="20%" colspan="1" style="font-style:italic">Comments</td>
+                    <td width="80%" colspan="7" style="font-style:italic">How you evaluate your colleagues SAP skill?</td>
+                </tr>
+                <!--Line manager SAP ERP skill-->
+                <tr>
+                    <td class="tdtitle" colspan="5">Line manager SAP ERP skill</td>
+                    <td class="tdrating" colspan="1" ng-repeat="RatingLine in RatingsLine">
+                        <label>
+                            <input type="checkbox"
+                                   ng-model="RatingLine.checked"
+                                   ng-click="updateManagerSAPSelection($index, RatingLine,RatingsLine, RatingLine.value)">
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="20%" colspan="1" style="font-style:italic">Comments</td>
+                    <td width="80%" colspan="7" style="font-style:italic">How you evaluate your manager SAP skill?</td>
+                </tr>
+                <tr>
+                    <td width="20%" colspan="6" class="tdtitle">Overall Rating<p style="font-style:italic;font-weight:100;display:inline-block">(average the rating numbers above)</p></td>
+                    <td width="80%" colspan="4" style="font-style:italic">{{Rating.Overall_Rating}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="evaluationBox">
+        <div style="height:40px">
+            <h1 class="Informationbar">Evaluation</h1>
+        </div>
+        <br>
+        <p style="font-weight:bolder">LIST YOUR SAP QUESTIONS DURING DAILY WORK:</p>
+        <div style="padding-left:30em">
+            <p> e.g How Many purchasing document type, I can use?<br>e.g Does any easy way to do the inventory taking?</p>
+        </div>
+    </div>
+    <div id="questions">
+        <textarea ng-model="Rating.SAP_Question1" placeholder="Mandatory field for SAP question1" cols="30" rows="3"></textarea><br><br>
+        <textarea ng-model="Rating.SAP_Question2" placeholder="Mandatory field for SAP question2" cols="30" rows="3"></textarea><br><br>
+        <textarea ng-model="Rating.SAP_Question3" placeholder="Mandatory field for SAP question3" cols="30" rows="3"></textarea><br><br>
+        <textarea ng-model="Rating.SAP_Question4" placeholder="Mandatory field for SAP question4" cols="30" rows="3"></textarea><br><br>
+        <textarea ng-model="Rating.SAP_Question5" placeholder="Mandatory field for SAP question5" cols="30" rows="3"></textarea><br><br>
+    </div>
+    <br>
+    <p style="font-weight:bolder">IDEA FOR HOW TO IMPROVE SAP OPERATION PERFORMANCE:</p>
+    <div id="ideas">
+        <textarea ng-model="Rating.SAP_Idea1" placeholder="Mandatory field for SAP idea1" cols="30" rows="3"></textarea><br><br>
+        <textarea ng-model="Rating.SAP_Idea2" placeholder="Mandatory field for SAP idea2" cols="30" rows="3"></textarea><br><br>
+        <textarea ng-model="Rating.SAP_Idea3" placeholder="Mandatory field for SAP idea3" cols="30" rows="3"></textarea><br><br>
+        <textarea ng-model="Rating.SAP_Idea4" placeholder="Mandatory field for SAP idea4" cols="30" rows="3"></textarea><br><br>
+        <textarea ng-model="Rating.SAP_Idea5" placeholder="Mandatory field for SAP idea5" cols="30" rows="3"></textarea><br><br>
+    </div>
+    <div style="padding-left:40em;">
+        <button id="btnsubmit" type="button" class="btn btn-primary" ng-click="submitform()">Submit</button>
+    </div>
+    <input type="hidden" id="employeename" value="@ViewBag.CurrentUserName"/>
+</div>
+
+@section JavaScript{
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/ScriptsNg/CustomerController.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script type="text/javascript">var appPath=@Url.Content("~/")</script>
+}

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CRUD_SampleModelStoreContainer" CdmEntityContainer="CRUD_SampleEntities">
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="CRUD_SampleModel.Customer">
+        <MappingFragment StoreEntitySet="Customers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CustName" ColumnName="CustName" />
+          <ScalarProperty Name="CustEmail" ColumnName="CustEmail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPLOYEE_RATING">
+      <EntityTypeMapping TypeName="CRUD_SampleModel.EMPLOYEE_RATING">
+        <MappingFragment StoreEntitySet="EMPLOYEE_RATING">
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="SAP_Idea5" ColumnName="SAP_Idea5" />
+          <ScalarProperty Name="SAP_Idea4" ColumnName="SAP_Idea4" />
+          <ScalarProperty Name="SAP_Idea3" ColumnName="SAP_Idea3" />
+          <ScalarProperty Name="SAP_Idea2" ColumnName="SAP_Idea2" />
+          <ScalarProperty Name="SAP_Idea1" ColumnName="SAP_Idea1" />
+          <ScalarProperty Name="SAP_Question5" ColumnName="SAP_Question5" />
+          <ScalarProperty Name="SAP_Question4" ColumnName="SAP_Question4" />
+          <ScalarProperty Name="SAP_Question3" ColumnName="SAP_Question3" />
+          <ScalarProperty Name="SAP_Question2" ColumnName="SAP_Question2" />
+          <ScalarProperty Name="SAP_Question1" ColumnName="SAP_Question1" />
+          <ScalarProperty Name="CreateOn" ColumnName="CreateOn" />
+          <ScalarProperty Name="Overall_Rating" ColumnName="Overall_Rating" />
+          <ScalarProperty Name="Line_Manager_SAP_ERP" ColumnName="Line_Manager_SAP_ERP" />
+          <ScalarProperty Name="Dept_Colleagues_SAP_ERP" ColumnName="Dept_Colleagues_SAP_ERP" />
+          <ScalarProperty Name="SAP_Environment" ColumnName="SAP_Environment" />
+          <ScalarProperty Name="Document_Resource" ColumnName="Document_Resource" />
+          <ScalarProperty Name="Priority_Daily_Work" ColumnName="Priority_Daily_Work" />
+          <ScalarProperty Name="Basic_Operation" ColumnName="Basic_Operation" />
+          <ScalarProperty Name="SAP_Module" ColumnName="SAP_Module" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

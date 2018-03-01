@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CRUD_SampleModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CustName" Type="varchar" MaxLength="100" />
+    <Property Name="CustEmail" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="EMPLOYEE_RATING">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="SAP_Module" Type="nvarchar" MaxLength="10" />
+    <Property Name="Basic_Operation" Type="int" />
+    <Property Name="Priority_Daily_Work" Type="int" />
+    <Property Name="Document_Resource" Type="int" />
+    <Property Name="SAP_Environment" Type="int" />
+    <Property Name="Dept_Colleagues_SAP_ERP" Type="int" />
+    <Property Name="Line_Manager_SAP_ERP" Type="int" />
+    <Property Name="Overall_Rating" Type="float" />
+    <Property Name="CreateOn" Type="datetime" />
+    <Property Name="SAP_Question1" Type="nvarchar(max)" />
+    <Property Name="SAP_Question2" Type="nvarchar(max)" />
+    <Property Name="SAP_Question3" Type="nvarchar(max)" />
+    <Property Name="SAP_Question4" Type="nvarchar(max)" />
+    <Property Name="SAP_Question5" Type="nvarchar(max)" />
+    <Property Name="SAP_Idea1" Type="nvarchar(max)" />
+    <Property Name="SAP_Idea2" Type="nvarchar(max)" />
+    <Property Name="SAP_Idea3" Type="nvarchar(max)" />
+    <Property Name="SAP_Idea4" Type="nvarchar(max)" />
+    <Property Name="SAP_Idea5" Type="nvarchar(max)" />
+    <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="CRUD_SampleModelStoreContainer">
+    <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EMPLOYEE_RATING" EntityType="Self.EMPLOYEE_RATING" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
