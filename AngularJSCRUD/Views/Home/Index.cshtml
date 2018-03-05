@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Index";
 }
-<div class="logo">
+<div class="logo" style="padding-left:960px;">
     <img src="~/Content/images/logo.png" />
 </div>
 <h2 style="padding-top:55px">SAP Knowledge Base Review</h2>
@@ -24,10 +24,11 @@
                 <tr>
                     <td width="20%" colspan="2" style="font-weight:bolder">In Use SAP Module</td>
                     <td width="80%" colspan="10">
-                        <label ng-repeat="SAPModule in SAPModuleS">
+                        <label class="beautifycheck" ng-repeat="SAPModule in SAPModuleS">
                             <input type="checkbox"
                                    ng-model="SAPModule.checked"
-                                   ng-click="updateSAPModuleSelection($index, SAPModuleS, SAPModule.title)">
+                                    ng-checked="selection.indexOf(SAPModule.title) > -1"
+                                   ng-click="updateSAPModuleSelection($index,SAPModule,SAPModuleS, SAPModule.title)">
                             {{SAPModule.title}}
                         </label>
                     </td>
@@ -83,7 +84,7 @@
                 <!--Document Resource-->
                 <tr>
                     <td class="tdtitle" colspan="5">Document resource</td>
-                    <td class="tdrating" colspan="1" ng-repeat="RatingDocument in RatingsDocument">
+                    <td class="tdrating" colspan="1" style="width:10px" ng-repeat="RatingDocument in RatingsDocument">
                         <label>
                             <input type="checkbox"
                                    ng-model="RatingDocument.checked"
@@ -184,5 +185,4 @@
     <script src="~/ScriptsNg/CustomerController.js"></script>
     <script src="~/Scripts/jquery-1.10.2.js"></script>
     <script src="~/Scripts/bootstrap.js"></script>
-    <script type="text/javascript">var appPath=@Url.Content("~/")</script>
 }

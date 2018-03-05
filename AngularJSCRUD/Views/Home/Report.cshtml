@@ -1,0 +1,128 @@
+﻿
+@{
+    ViewBag.Title = "Report";
+}
+<head>
+    <link href="~/Content/bootstrap2.min.css" rel="stylesheet" type="text/css" />
+</head>
+<div class="logo" style="padding-left:94em">
+    <img src="~/Content/images/logo.png" />
+</div>
+<h2 style="padding-top:3.5em;font-weight:bolder;font-size:250%">SAP Knowledge Base Review Report</h2>
+<div id="contentreport" ng-controller="ReportController" class="ng-cloak">
+    <div id="deptRatingInfoBox">
+        <div style="height:40px">
+            <h1 class="Informationbar">Employee infomation by dept</h1>
+        </div>
+        <div id="ratingTable">
+            <table style="width:100%">
+                <colgroup>
+                    <col span="2" class="short" />
+                    <col span="6" class="long" />
+                </colgroup>
+                <tr style="width:100%">
+                    <td class="ratingContent">Department</td>
+                    <td class="ratingContent">Basic Operation</td>
+                    <td class="ratingContent">Priority in your daily work</td>
+                    <td class="ratingContent">Document resource</td>
+                    <td class="ratingContent">Company SAP learning environment</td>
+                    <td class="ratingContent">Same department colleagues SAP ERP skill</td>
+                    <td class="ratingContent">Line manager SAP ERP skill</td>
+                </tr>
+                <tr ng-repeat="dept in depts" >
+                    <td style="font-weight:bolder"> {{dept.dept}}</td>
+                    <td >{{dept.basic}}</td>
+                    <td >{{dept.priority}}</td>
+                    <td >{{dept.document}}</td>
+                    <td >{{dept.company}}</td>
+                    <td >{{dept.colleague}}</td>
+                    <td >{{dept.line}}</td>
+                </tr>               
+            </table>
+        </div>
+    </div>
+    <br><br>
+    <div id="selfRatingBox">
+        <div style="height:40px">
+            <h1 class="Informationbar">Question trend</h1>
+        </div>
+        <div id="ratingTable">
+            <table style="width:100%">
+                <colgroup>
+                    <col span="1" class="trendshort" />
+                    <col span="5" class="trendlong" />
+                </colgroup>
+                <tr>
+                    <td class="trendcontent"></td>
+                    <td class="trendcontent">1 = poor</td>
+                    <td class="trendcontent">2 = Fair</td>
+                    <td class="trendcontent">3 = Satisfatory</td>
+                    <td class="trendcontent">4 = Good</td>
+                    <td class="trendcontent">5 = Excellent</td>
+                </tr>
+                <!--Basic Operation-->
+                <tr>
+                    <td class="trendtitle">Basic operation</td>
+                    <td colspan="5" style="padding-top:3.5em;">
+                        <div class="progress" style="height:3em" >
+                            <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="{{basic}}" aria-valuemin="0" aria-valuemax="100" ng-style="{width:(basic+'%')}"></div>
+                        </div>
+                    </td>
+                </tr>
+                <!--Priority in your daily work-->
+                <tr>
+                    <td class="trendtitle">Priority in your daily work</td>
+                    <td colspan="5" style="padding-top:3.5em;">
+                        <div class="progress" style="height:3em">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="{{priority}}" aria-valuemin="0" aria-valuemax="100" ng-style="{width:(priority+'%')}" ></div>
+                        </div>
+                    </td>
+                </tr>
+                <!--Document Resource-->
+                <tr>
+                    <td class="trendtitle">Document resource</td>
+                    <td colspan="5" style="padding-top:3.5em;">
+                        <div class="progress" style="height:3em">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="{{document}}" aria-valuemin="0" aria-valuemax="100" ng-style="{width:(document+'%')}"></div>
+                        </div>
+                    </td>
+                </tr>
+                <!--Company SAP Learning Environment-->
+                <tr>
+                    <td class="trendtitle">Company SAP learning environment</td>
+                    <td colspan="5" style="padding-top:3.5em;">
+                        <div class="progress" style="height:3em">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="{{company}}" aria-valuemin="0" aria-valuemax="100" ng-style="{width:(company+'%')}"></div>
+                        </div>
+                    </td>
+                </tr>
+                <!--Same Dept Colleagues SAP ERP skill-->
+                <tr>
+                    <td class="trendtitle">Same department colleagues SAP ERP skill</td>
+                    <td colspan="5" style="padding-top:3.5em;">
+                        <div class="progress" style="height:3em">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="{{dept}}" aria-valuemin="0" aria-valuemax="100" ng-style="{width:(dept+'%')}"></div>
+                        </div>
+                    </td>
+                </tr>
+                <!--Line manager SAP ERP skill-->
+                <tr>
+                    <td class="trendtitle">Line manager SAP ERP skill</td>
+                    <td colspan="5" style="padding-top:3.5em;">
+                        <div class="progress" style="height:3em">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="{{line}}" aria-valuemin="0" aria-valuemax="100" ng-style="{width:(line+'%')}"></div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+@section JavaScript{
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/ScriptsNg/ReportController.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/bootstrap2.min.js"></script>
+}
