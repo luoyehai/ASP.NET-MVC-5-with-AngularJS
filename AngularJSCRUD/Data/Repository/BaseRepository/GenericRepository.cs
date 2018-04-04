@@ -31,6 +31,13 @@ namespace AngularJSCRUD.Data.Repository.BaseRepository
                 return context.Database.SqlQuery<T>(spQuery, parameters).ToList();
             }
         }
+        public IEnumerable<T> ExecuteQuery(string spQuery)
+        {
+            using (context = new CRUD_SampleEntities())
+            {
+                return context.Database.SqlQuery<T>(spQuery).ToList();
+            }
+        }
 
         /// <summary>
         /// Get Single Data From Database
