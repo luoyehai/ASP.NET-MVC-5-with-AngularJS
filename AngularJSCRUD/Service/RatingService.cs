@@ -11,9 +11,13 @@ namespace AngularJSCRUD.Service
     public partial class RatingService
     {
         private GenericRepository<EMPLOYEE_RATING> RatingRepository;
+        private GenericRepository<AvgScore> avgRepository;
+        private GenericRepository<RankingDept> rankingdeptRepository;
         public RatingService()
         {
             this.RatingRepository = new GenericRepository<EMPLOYEE_RATING>(new CRUD_SampleEntities());
+            this.avgRepository = new GenericRepository<AvgScore>(new CRUD_SampleEntities());
+            this.rankingdeptRepository = new GenericRepository<RankingDept>(new CRUD_SampleEntities());
         }
         public int Insert(object[] parameters)
         {
@@ -39,6 +43,20 @@ namespace AngularJSCRUD.Service
                                    new SqlParameter("@SAP_Idea5", parameters[18])};
             return RatingRepository.ExecuteCommand(spQuery, newparas);
         }
+        public IEnumerable<AvgScore> getAvgScore() {
 
+            string spQuery = "[getAvgScoreofEachQuestion]";
+            return avgRepository.ExecuteQuery(spQuery);
+
+        }
+        public RankingDept getRankingbyDept(object[] dept) {
+            string spquery = "[Calaultetherankingbydept] {0}";
+            return rankingdeptRepository.ExecuteQuerySingle (spquery, dept);
+        }
+        public IEnumerable<EMPLOYEE_RATING> getAllRankings()
+        {
+            string spquery = "[Get_AllEmployeeRankings]";
+            return RatingRepository.ExecuteQuery(spquery);
+        }
     }
 } 

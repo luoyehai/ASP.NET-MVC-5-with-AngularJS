@@ -1,5 +1,6 @@
 ﻿var app = angular.module('myFormApp', []);
 app.controller('CustomerController', function ($scope, $http, $location, $window) {
+        $scope.url = '/Home'
         $scope.Rating = {};
         $scope.Rating.EmployeeName = $("#employeename").val();
         $scope.Rating.Overall_Rating = 0;
@@ -284,7 +285,7 @@ app.controller('CustomerController', function ($scope, $http, $location, $window
         }
 
         function GetLogin() {
-            var oldurl = '/Home/getLogin';
+            var oldurl = $scope.url+'/getLogin';
             //var url = '@Url.Action("getLogin", "Home")'
             $http.get(oldurl)
                 .success(function (data, status, headers, config) {
@@ -300,7 +301,7 @@ app.controller('CustomerController', function ($scope, $http, $location, $window
         $scope.UpdateSurveyinDB = function () {
             $http({
                 method: 'POST',
-                url: '/Home/SaveRating',
+                url: $scope.url+'/SaveRating',
                 data: $scope.Rating
             }).success(function (data, status, headers, config) {
                 if (data.success === true) {

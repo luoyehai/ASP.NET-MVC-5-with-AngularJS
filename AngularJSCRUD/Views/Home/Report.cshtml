@@ -30,13 +30,13 @@
                     <td class="ratingContent">Line manager SAP ERP skill</td>
                 </tr>
                 <tr ng-repeat="dept in depts" >
-                    <td style="font-weight:bolder"> {{dept.dept}}</td>
-                    <td >{{dept.basic}}</td>
-                    <td >{{dept.priority}}</td>
-                    <td >{{dept.document}}</td>
-                    <td >{{dept.company}}</td>
-                    <td >{{dept.colleague}}</td>
-                    <td >{{dept.line}}</td>
+                    <td style="font-weight:bolder"> {{dept.Module}}</td>
+                    <td >{{dept.Basic_Operation}}</td>
+                    <td >{{dept.Priority_Daily_Work}}</td>
+                    <td >{{dept.Document_Resource}}</td>
+                    <td >{{dept.SAP_Environment}}</td>
+                    <td >{{dept.Dept_Colleagues_SAP_ERP}}</td>
+                    <td >{{dept.Line_Manager_SAP_ERP}}</td>
                 </tr>               
             </table>
         </div>
@@ -117,12 +117,23 @@
             </table>
         </div>
     </div>
+    <br><br>
+    <div id="exportBox">
+         <div id="exporttoexcelbtn" class="inlinebtn">
+             <input excel-export export-data="exportData" type="button" class="export" value="Export"  />
+         </div>
+    </div>
 </div>
 @section JavaScript{
     <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/angular.min.js"></script>
     <script src="~/ScriptsNg/ReportController.js"></script>
     <script src="~/Scripts/jquery-1.10.2.js"></script>
     <script src="~/Scripts/bootstrap.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/bootstrap2.min.js"></script>
+    <script src="~/Scripts/FileSaver.js"></script>
+    <script src="~/Scripts/jszip.js"></script>
+    <script src="~/Scripts/xlsx.js"></script>
+
 }
